@@ -38,11 +38,24 @@ authController.login = async (req, res) => {
           message: "Email incorrecto"
         });
       }
+      
+      const token = jwt.sign({
+        role_id: user.role_id,
+        email: user.email,
+        username: user.username
+    },
+    'secret',
+    {
+        expiresIn: "2h"
+    });
+    console.log('Token is: ' + token);
+
       return res.json({
         success: true,
         message: "Bienvenid@",
         user
       });
+      
     } catch (error) {
       return res.status(500).json({
         success: false,
