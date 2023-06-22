@@ -1,11 +1,15 @@
 const express = require("express");
 const PORT = 7204;
-const db = require('/db');
+const db = require('./db');
 const app = express();
 const router = require('./router');
 
 app.use(express.json());
 app.use(router);
+
+app.get('/health',  (req, res) => {
+    return res.send('healthy');
+})
 
 db.then(()=> {
     app.listen(PORT, () => {

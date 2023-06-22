@@ -1,23 +1,24 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "database_development",
-    "host": "127.0.0.1",
+    "password": "DjAQg7ka9uhSwHjBYulE",
+    "database": "GeeksHubs",
+    "host": "containers-us-west-193.railway.app",
+    "port": 7204,
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
+    "password": "DjAQg7ka9uhSwHjBYulE",
+    "database": "GeeksHubs",
+    "host": "containers-us-west-193.railway.app",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "password": "DjAQg7ka9uhSwHjBYulE",
+    "database": "GeeksHubs",
+    "host": "containers-us-west-193.railway.app",
     "dialect": "mysql"
   }
 }
