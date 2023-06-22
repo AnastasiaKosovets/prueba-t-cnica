@@ -12,12 +12,19 @@ module.exports = {
       categoryname: {
         type: Sequelize.STRING
       },
+      role_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Roles",
+          key: "id"
+        }
+      },
       createdAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       }
     });
