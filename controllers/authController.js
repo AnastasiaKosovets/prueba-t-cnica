@@ -19,6 +19,35 @@ authController.register = async (req, res) => {
     } catch (error) {
         return res.send("Algo ha ido mal al registrarse " + error)
     }
+
 }
 
+authController.login = async (req, res) => {
+    try {
+      const { username, email } = req.body;
+      const user = await User.findOne({
+        where: {
+          email: email
+        }
+      });
+      if(!user) {
+        return res.json({
+          success: true,
+          message: "Email incorrecto"
+        });
+      }
+      return res.json({
+        success: true,
+        message: "Bienvenid@",
+        user
+      });
+    } catch (error) {
+      return res.status(500).json({
+        success: false,
+        message: "Algo ha ido mal con LogIn",
+        error: error
+      })
+    }
+  }
+  
 module.exports = authController;
