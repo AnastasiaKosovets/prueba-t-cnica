@@ -1,4 +1,4 @@
-const { User } = require('..models');
+const { User } = require('../models');
 const jwt = require('jsonwebtoken');
 const authController = {};
 
@@ -10,8 +10,10 @@ authController.register = async (req, res) => {
                 message: "La contraseña tiene que tener 8 carácteres"
             });
         };
+        const newPassword = (req.body.password, 8);
         const newUser = await User.create ({
             email: req.body.email,
+            password: newPassword,
             username: req.body.username
         });
         return res.send(newUser);
