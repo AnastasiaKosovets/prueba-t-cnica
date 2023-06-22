@@ -15,6 +15,13 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
+      role_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Roles",
+          key: "id"
+        }
+      },
       createdAt: {
         allowNull: true,
         type: Sequelize.DATE

@@ -13,7 +13,9 @@ authController.register = async (req, res) => {
         // const newPassword = (req.body.password, 8);
         const newUser = await User.create ({
             email: req.body.email,
-            username: req.body.username
+            username: req.body.username,
+            role_id: req.body.role_id
+
         });
         return res.send(newUser);
     } catch (error) {
@@ -49,5 +51,5 @@ authController.login = async (req, res) => {
       })
     }
   }
-  
+
 module.exports = authController;
