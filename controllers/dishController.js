@@ -20,4 +20,30 @@ dishController.getAllDishes =  async(req, res) => {
     }
 }
 
+userController.getAllPatients =  async(req, res) => {
+    try {
+        const dishname = req.params.dishname;
+        const dish = await Dish.findByPk(dishname)
+
+        if(!dish){
+            return res.json({
+                success: true,
+                message: "Plato no existe"
+            })
+        }
+
+        return res.json({
+            success: true,
+            message: "Plato encontrado",
+            data: dish
+        })
+    } catch (error) {
+        return res.status(500).json({
+                success: false,
+                message: "Error al buscar el plato",
+                error: error.message
+            })    
+    }
+}
+
 module.exports = dishController;
